@@ -1,0 +1,24 @@
+.failure-view-container {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto;
+  margin-top: 30px;
+}
+.retry-button {
+  height: 40px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blueviolet;
+  color: #ffffff;
+  font-family: Roboto;
+  border: none;
+  border-radius: 15px;
+}
+.failure-image {
+  height: 300px;
+}

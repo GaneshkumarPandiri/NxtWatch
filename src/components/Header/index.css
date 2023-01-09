@@ -1,0 +1,62 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 100px;
+  padding-right: 100px;
+  align-items: center;
+  height: 70px;
+}
+.profile {
+  height: 35px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.nav-items-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-home {
+  height: 35px;
+}
+.popup-container {
+  background-color: #181818;
+  border: 2px solid blueviolet;
+  border-radius: 15px;
+  height: 180px;
+  width: 300px;
+  font-family: Roboto;
+  color: #ffffff;
+  padding: 20px;
+}
+.popup-button-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+}
+.close-button {
+  height: 35px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: roboto;
+  border: 2px sold blue;
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.confirm-button {
+  height: 35px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: #ffffff;
+  background-color: blueviolet;
+}

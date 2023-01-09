@@ -1,0 +1,13 @@
+.list-item-thumbnail {
+  width: 260px;
+  border: 1px solid #ffffff;
+  padding: 15px;
+  border-radius: 15px;
+}
+.thumbnail-image-gaming {
+  width: 240px;
+}
+.specifications-gaming {
+  display: flex;
+  justify-content: space-between;
+}

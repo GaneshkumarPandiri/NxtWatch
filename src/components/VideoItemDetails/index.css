@@ -1,0 +1,27 @@
+.video-details-container {
+  display: flex;
+}
+.video-content {
+  min-width: 80vw;
+  padding: 20px;
+}
+.loader-container {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.operations {
+  display: flex;
+  justify-content: space-between;
+}
+.view-details {
+  display: flex;
+}
+.button-group {
+  display: flex;
+}
+.video-item-container {
+  font-family: roboto;
+  min-width: 100%;
+}

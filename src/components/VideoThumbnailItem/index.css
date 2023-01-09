@@ -1,0 +1,22 @@
+.thumbnail-image {
+  width: 250px;
+}
+.logo {
+  height: 50px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.specifications {
+  display: flex;
+  align-items: flex-start;
+}
+.link-item {
+  text-decoration: none;
+  margin: 15px;
+  color: #000000;
+  font-family: Roboto;
+}
+.list-item {
+  max-width: 250px;
+  margin: 15px;
+}

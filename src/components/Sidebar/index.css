@@ -1,0 +1,27 @@
+.sidebar-container {
+  width: 20vw;
+  padding-top: 20px;
+  height: 110vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: roboto;
+}
+.tabs {
+  background-color: transparent;
+  font-family: roboto;
+  display: flex;
+  margin-bottom: 15px;
+  font-family: Roboto;
+  border: none;
+}
+.icon-contact {
+  height: 35px;
+  margin: 15px;
+}
+.contact-container {
+  margin: 20px;
+}
+.active-tab {
+  border: 2px solid blueviolet;
+}

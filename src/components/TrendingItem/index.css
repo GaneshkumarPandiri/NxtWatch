@@ -1,0 +1,12 @@
+.list-item-trending {
+  display: flex;
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid blueviolet;
+  min-width: 70vw;
+}
+.specifications-trending {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}

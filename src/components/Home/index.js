@@ -54,6 +54,8 @@ class Home extends Component {
         title: video.title,
         thumbnailUrl: video.thumbnail_url,
         channel: video.channel,
+        viewCount: video.view_count,
+        publishedAt: video.published_at,
       }))
       this.setState({
         videosList: convertedVideosList,
@@ -82,23 +84,77 @@ class Home extends Component {
     this.setState({isLoadingVideos: true}, this.getAllVideosList)
   }
 
-  onSuccessVideosResponse = () => {
-    const {videosList} = this.state
+  onSuccessVideosResponse = () => (
+    <Context.Consumer>
+      {value => {
+        const {isDarkMode} = value
+        const {
+          isLoadingVideos,
+          videosList,
+          searchInput,
+          bannerHide,
+        } = this.state
+        const theme = isDarkMode ? 'dark' : 'light'
 
-    return (
-      <div>
-        {videosList.length <= 0 ? (
-          <SearchResultsNotFound onRetryVideos={this.onRetryVideos} />
-        ) : (
-          <ul className="videos-container">
-            {videosList.map(item => (
-              <VideoThumbnailItem videoItem={item} key={item.id} />
-            ))}
-          </ul>
-        )}
-      </div>
-    )
-  }
+        return (
+          <div className={`${theme}`} data-testid="home">
+            {!bannerHide && (
+              <div className="banner" data-testid="banner">
+                <div className="banner-cross">
+                  <img
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                    alt="nxt watch logo"
+                    className="logo-home"
+                  />
+                  <button
+                    type="button"
+                    onClick={this.onHideBanner}
+                    data-testid="close"
+                  >
+                    <ImCross />
+                  </button>
+                </div>
+                <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
+                <button type="button" className="get-button">
+                  GET IT NOW
+                </button>
+              </div>
+            )}
+            <div className="sub-home-videos-container">
+              <div className="search-container">
+                <input
+                  type="search"
+                  className="search-input"
+                  placeholder="Search"
+                  value={searchInput}
+                  onChange={this.onSearchInput}
+                />
+                <button
+                  type="button"
+                  className="search-button"
+                  onClick={this.onSearchClick}
+                  data-testid="searchButton"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+            <div>
+              {videosList.length <= 0 ? (
+                <SearchResultsNotFound onRetryVideos={this.onRetryVideos} />
+              ) : (
+                <ul className="videos-container">
+                  {videosList.map(item => (
+                    <VideoThumbnailItem videoItem={item} key={item.id} />
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        )
+      }}
+    </Context.Consumer>
+  )
 
   onFailureVideosResponse = () => (
     <FailureView onRetryVideos={this.onRetryVideos} />
@@ -138,54 +194,8 @@ class Home extends Component {
               <Header />
               <div className="home-container">
                 <Sidebar />
-                <div className={`${theme}`} data-testid="home">
-                  {!bannerHide && (
-                    <div className="banner" data-testid="banner">
-                      <div className="banner-cross">
-                        <img
-                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                          alt="nxt watch logo"
-                          className="logo-home"
-                        />
-                        <button
-                          type="button"
-                          onClick={this.onHideBanner}
-                          data-testid="close"
-                        >
-                          <ImCross />
-                        </button>
-                      </div>
-                      <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
-                      <button type="button" className="get-button">
-                        GET IT NOW
-                      </button>
-                    </div>
-                  )}
-
-                  <div className="sub-home-videos-container">
-                    <div className="search-container">
-                      <input
-                        type="search"
-                        className="search-input"
-                        placeholder="Search"
-                        value={searchInput}
-                        onChange={this.onSearchInput}
-                      />
-                      <button
-                        type="button"
-                        className="search-button"
-                        onClick={this.onSearchClick}
-                        data-testid="searchButton"
-                      >
-                        Search
-                      </button>
-                    </div>
-                    <div className="content-container">
-                      {isLoadingVideos
-                        ? this.renderLoader()
-                        : this.renderVideos()}
-                    </div>
-                  </div>
+                <div className={`${theme} content-container`}>
+                  {isLoadingVideos ? this.renderLoader() : this.renderVideos()}
                 </div>
               </div>
             </>

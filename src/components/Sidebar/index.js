@@ -35,15 +35,12 @@ const Sidebar = () => (
                 key={item.id}
                 className={`${theme} link-item`}
               >
-                <li>
-                  <button
-                    type="button"
-                    className={`${theme} tabs`}
-                    onClick={onTabSelect}
-                    value={item.id}
-                  >
-                    {item.displayText}
-                  </button>
+                <li
+                  className={`${theme} tabs`}
+                  onClick={onTabSelect}
+                  value={item.id}
+                >
+                  {item.displayText}
                 </li>
               </Link>
             ))}

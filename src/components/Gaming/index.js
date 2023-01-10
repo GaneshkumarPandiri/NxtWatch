@@ -9,7 +9,7 @@ import Context from '../../Context'
 import Sidebar from '../Sidebar'
 import GameVideoItem from '../GameVideoItem'
 
-import FailureView from '../FailureView'
+import FailureViewGamingVideoDetail from '../FailureViewGamingVideoDetail'
 import Header from '../Header'
 
 import './index.css'
@@ -84,7 +84,9 @@ class Gaming extends Component {
   }
 
   onFailureGamingVideosResponse = () => (
-    <FailureView onRetryGamingVideos={this.onRetryGamingVideos} />
+    <FailureViewGamingVideoDetail
+      onRetryGamingVideos={this.onRetryGamingVideos}
+    />
   )
 
   renderGamingVideos = () => {

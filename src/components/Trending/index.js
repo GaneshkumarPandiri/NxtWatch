@@ -9,7 +9,7 @@ import Context from '../../Context'
 import Sidebar from '../Sidebar'
 import TrendingItem from '../TrendingItem'
 
-import FailureView from '../FailureView'
+import FailureViewTrendingVideoDetail from '../FailureViewTrendingVideoDetail'
 import Header from '../Header'
 
 import './index.css'
@@ -87,7 +87,9 @@ class Trending extends Component {
   }
 
   onFailureTrendingVideosResponse = () => (
-    <FailureView onRetryVideos={this.onRetryVideos} />
+    <FailureViewTrendingVideoDetail
+      onRetryTrendingVideos={this.onRetryTrendingVideos}
+    />
   )
 
   renderTrendingVideos = () => {

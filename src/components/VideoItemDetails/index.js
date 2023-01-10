@@ -7,7 +7,7 @@ import {formatDistanceToNow} from 'date-fns'
 
 import {BiLike, BiDislike, BiSave} from 'react-icons/bi'
 
-import FailureViewVideoDetail from '../FailureView'
+import FailureViewVideoDetail from '../FailureViewVideoDetail'
 import Context from '../../Context'
 import Header from '../Header'
 import Sidebar from '../Sidebar'
@@ -67,7 +67,7 @@ class VideoItemDetails extends Component {
     } else {
       this.setState({
         isLoadingVideo: false,
-        videoResponseStatus: videoResponse.success,
+        videoResponseStatus: videoResponse.failure,
       })
     }
   }
@@ -146,7 +146,6 @@ class VideoItemDetails extends Component {
                   type="button"
                   onClick={onSaveVideo}
                 >
-                  <BiSave />
                   {isSaved ? 'Saved' : 'Save'}
                 </SaveButton>
               </div>
@@ -155,7 +154,7 @@ class VideoItemDetails extends Component {
             <div>
               <img
                 src={channel.profile_image_url}
-                alt="profile"
+                alt="channel logo"
                 className="logo"
               />
               <div>

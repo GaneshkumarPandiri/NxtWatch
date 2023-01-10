@@ -19,7 +19,7 @@ const SearchResultsNotFound = props => (
           />
 
           <h1>No Search results found</h1>
-          <p>Try different keywords or remove search filter</p>
+          <p>Try different key words or remove search filter</p>
           <button type="button" className="retry-button" onClick={onRetry}>
             Retry
           </button>

@@ -1,14 +1,14 @@
 import Context from '../../Context'
 import './index.css'
 
-const FailureView = props => (
+const FailureViewTrendingVideoDetail = props => (
   <Context.Consumer>
     {value => {
       const {isDarkMode} = value
-      const {onRetryVideos} = props
+      const {onRetryTrendingVideos} = props
       const theme = isDarkMode ? 'dark' : 'light'
       const onRetry = () => {
-        onRetryVideos()
+        onRetryTrendingVideos()
       }
       return (
         <div className={`${theme} failure-view-container`}>
@@ -26,8 +26,10 @@ const FailureView = props => (
             />
           )}
           <h1>Oops! Something Went Wrong</h1>
-          <p>We are having some trouble to complete your request.</p>
-          <p>Please try again</p>
+          <p>
+            We are having some trouble to complete your request. Please try
+            again.
+          </p>
           <button type="button" className="retry-button" onClick={onRetry}>
             Retry
           </button>
@@ -37,4 +39,4 @@ const FailureView = props => (
   </Context.Consumer>
 )
 
-export default FailureView
+export default FailureViewTrendingVideoDetail
